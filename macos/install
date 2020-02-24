@@ -24,8 +24,11 @@ if [ -d "$HOME"/.oh-my-zsh ]; then
   rm -rf "$HOME"/.oh-my-zsh
 fi
 
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-git clone --depth=1 https://github.com/romkatv/powerlevel10k.git $ZSH_CUSTOM/themes/powerlevel10k
+echo "Clone oh-my-zsh"
+git clone https://github.com/ohmyzsh/ohmyzsh.git ~/.oh-my-zsh
+
+echo "Clone Powerlevel10k"
+git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ~/.oh-my-zsh/custom/themes/powerlevel10k
 
 # Install fonts
 echo "[*] Downloading fonts if not exists (MesloLGS NF)..."
@@ -44,8 +47,9 @@ fi
 
 # Link .dotfiles
 
-ln -s ~/.dotfiles/macos/zshrc ~/.zshrc
-ln -s ~/.dotfiles/macos/p10k.zsh ~/.p10k.zsh
+
+ln -sfn ~/.dotfiles/macos/zshrc ~/.zshrc
+ln -sfn ~/.dotfiles/macos/p10k.zsh ~/.p10k.zsh
 
 
 
