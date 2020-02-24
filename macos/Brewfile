@@ -5,21 +5,26 @@ tap "homebrew/services"
 
 brew "zsh"
 brew "zsh-completions"
-brew "direnv"
 brew "python"
+brew "pipenv"
+brew "tmux"
 brew "mas"
 
 
-cask "db-browser-for-sqlite"
+cask 'db-browser-for-sqlite'
 cask '1password'
 cask 'bartender'
 cask 'docker'
 cask 'firefox'
 cask 'google-chrome'
-cask 'mysqlworkbench'
 cask 'slack'
 cask 'sublime-text'
+cask 'sublime-merge'
+cask 'visual-studio-code'
+cask 'iterm2'
 cask 'vlc'
+cask 'postman'
+
 
 mas "Amphetamine", id: 937984704
 mas "Apple Configurator 2", id: 1037126344

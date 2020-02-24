@@ -4,7 +4,7 @@ sudo softwareupdate -i -a --restart
 
 echo "Install CLI Tools"
 xcode-select --install
-read -p "Please signin in AppStore"
+read -p "Please signin in AppStore and press Enter..."
 
 # install Homebrew
 if test ! $(which brew); then
@@ -17,3 +17,11 @@ brew update
 # Install all our dependencies with bundle (See Brewfile)
 brew tap homebrew/bundle
 brew bundle
+
+bootstrap_echo "Step 2: Installing Oh-My-Zsh..."
+
+if [ -d "$HOME"/.oh-my-zsh ]; then
+  rm -rf "$HOME"/.oh-my-zsh
+fi
+
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
