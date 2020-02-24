@@ -18,10 +18,38 @@ brew update
 brew tap homebrew/bundle
 brew bundle
 
-bootstrap_echo "Step 2: Installing Oh-My-Zsh..."
+# Installing Oh-My-Zsh...
 
 if [ -d "$HOME"/.oh-my-zsh ]; then
   rm -rf "$HOME"/.oh-my-zsh
 fi
 
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+git clone --depth=1 https://github.com/romkatv/powerlevel10k.git $ZSH_CUSTOM/themes/powerlevel10k
+
+# Install fonts
+echo "[*] Downloading fonts if not exists (MesloLGS NF)..."
+if [[ ! -e "$HOME/Library/Fonts/MesloLGS NF Regular.ttf" ]]; then
+    wget -q --show-progress -P $HOME/Library/Fonts/ https://github.com/romkatv/dotfiles-public/raw/master/.local/share/fonts/NerdFonts/MesloLGS%20NF%20Regular.ttf
+fi
+if [[ ! -e "$HOME/Library/Fonts/MesloLGS NF Bold.ttf" ]]; then
+    wget -q --show-progress -P $HOME/Library/Fonts/ https://github.com/romkatv/dotfiles-public/raw/master/.local/share/fonts/NerdFonts/MesloLGS%20NF%20Bold.ttf
+fi
+if [[ ! -e "$HOME/Library/Fonts/MesloLGS NF Italic.ttf" ]]; then
+    wget -q --show-progress -P $HOME/Library/Fonts/ https://github.com/romkatv/dotfiles-public/raw/master/.local/share/fonts/NerdFonts/MesloLGS%20NF%20Italic.ttf
+fi
+if [[ ! -e "$HOME/Library/Fonts/MesloLGS NF Bold Italic.ttf" ]]; then
+    wget -q --show-progress -P $HOME/Library/Fonts/ https://github.com/romkatv/dotfiles-public/raw/master/.local/share/fonts/NerdFonts/MesloLGS%20NF%20Bold%20Italic.ttf
+fi
+
+# Link .dotfiles
+
+ln -s ~/.dotfiles/macos/zshrc ~/.zshrc
+ln -s ~/.dotfiles/macos/p10k.zsh ~/.p10k.zsh
+
+
+
+# mOS 10.15 specific
+read -p "Please VSCode once and press Enter..."
+
+code --install-extension almenon.arepl

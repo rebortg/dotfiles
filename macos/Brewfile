@@ -5,6 +5,8 @@ tap "homebrew/services"
 
 brew "zsh"
 brew "zsh-completions"
+brew "zsh-syntax-highlighting"
+brew "wget"
 brew "python"
 brew "pipenv"
 brew "tmux"
