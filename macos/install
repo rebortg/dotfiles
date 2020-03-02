@@ -45,6 +45,12 @@ if [[ ! -e "$HOME/Library/Fonts/MesloLGS NF Bold Italic.ttf" ]]; then
     wget -q --show-progress -P $HOME/Library/Fonts/ https://github.com/romkatv/dotfiles-public/raw/master/.local/share/fonts/NerdFonts/MesloLGS%20NF%20Bold%20Italic.ttf
 fi
 
+if [[ ! -e "$HOME/Library/Fonts/SourceCodePro+Powerline+Awesome+Regular.ttf" ]]; then
+    wget -q --show-progress -P $HOME/Library/Fonts/ https://github.com/Falkor/dotfiles/blob/master/fonts/SourceCodePro+Powerline+Awesome+Regular.ttf?raw=true
+fi
+
+
+
 # Link .dotfiles
 
 
@@ -57,3 +63,5 @@ ln -sfn ~/.dotfiles/macos/p10k.zsh ~/.p10k.zsh
 read -p "Please VSCode once and press Enter..."
 
 code --install-extension almenon.arepl
+
+source dock.sh
