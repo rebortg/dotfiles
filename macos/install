@@ -46,7 +46,7 @@ if [[ ! -e "$HOME/Library/Fonts/MesloLGS NF Bold Italic.ttf" ]]; then
 fi
 
 if [[ ! -e "$HOME/Library/Fonts/SourceCodePro+Powerline+Awesome+Regular.ttf" ]]; then
-    wget -q --show-progress -P $HOME/Library/Fonts/ https://github.com/Falkor/dotfiles/blob/master/fonts/SourceCodePro+Powerline+Awesome+Regular.ttf?raw=true
+    wget -q --show-progress -P $HOME/Library/Fonts/ https://github.com/Falkor/dotfiles/raw/master/fonts/SourceCodePro+Powerline+Awesome+Regular.ttf
 fi
 
 

@@ -11,6 +11,7 @@ brew "python"
 brew "pipenv"
 brew "tmux"
 brew "mas"
+brew "dockutil"
 
 
 cask 'db-browser-for-sqlite'
