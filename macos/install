@@ -1,9 +1,3 @@
-# prepare
-echo "Update mOS"
-sudo softwareupdate -i -a --restart
-
-echo "Install CLI Tools"
-xcode-select --install
 read -p "Please signin in AppStore and press Enter..."
 
 # install Homebrew
@@ -60,8 +54,28 @@ ln -sfn ~/.dotfiles/macos/p10k.zsh ~/.p10k.zsh
 
 
 # mOS 10.15 specific
-read -p "Please VSCode once and press Enter..."
+read -p "Please open VSCode once and press Enter..."
 
 code --install-extension almenon.arepl
+code --install-extension bastisteo.vscode-django
+code --install-extension ms-azuretools-vscode-docker
+code --install-extension ms-python.python
 
-source dock.sh
+
+# set dock Icons
+
+dockutil --no-restart --remove all
+dockutil --no-restart --add "/Applications/Google Chrome.app"
+dockutil --no-restart --add "/Applications/Safari.app"
+dockutil --no-restart --add "/Applications/Firefox.app"
+dockutil --no-restart --add "/Applications/Thunderbird.app"
+dockutil --no-restart --add "/Applications/iTerm.app"
+dockutil --no-restart --add "/Applications/Visual Studio Code.app"
+dockutil --no-restart --add "/Applications/Sublime Text.app"
+dockutil --no-restart --add "/Applications/Sublime Merge.app"
+dockutil --no-restart --add "/Applications/Slack.app"
+dockutil --no-restart --add "/Applications/Spotify.app"
+dockutil --no-restart --add "/System/Applications/App Store.app"
+dockutil --no-restart --add "/System/Applications/System Preferences.app"
+
+killall Dock

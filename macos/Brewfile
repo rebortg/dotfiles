@@ -19,6 +19,7 @@ cask '1password'
 cask 'bartender'
 cask 'docker'
 cask 'firefox'
+cask 'thunderbird'
 cask 'google-chrome'
 cask 'slack'
 cask 'sublime-text'
@@ -27,6 +28,8 @@ cask 'visual-studio-code'
 cask 'iterm2'
 cask 'vlc'
 cask 'postman'
+cask 'vagrant'
+cask 'wireshark'
 
 
 mas "Amphetamine", id: 937984704
@@ -35,4 +38,4 @@ mas "Mactracker", id: 430255202
 mas "Magnet", id: 441258766
 mas "Microsoft Remote Desktop", id: 1295203466
 mas "Pixelmator", id: 407963104
-# mas "Xcode", id: 497799835
+mas "Xcode", id: 497799835
