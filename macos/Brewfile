@@ -30,6 +30,9 @@ cask 'vlc'
 cask 'postman'
 cask 'vagrant'
 cask 'wireshark'
+cask 'spotify'
+cask 'istat-menus'
+cask 'tunnelblick'
 
 
 mas "Amphetamine", id: 937984704
