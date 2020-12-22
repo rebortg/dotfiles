@@ -1,6 +1,11 @@
+echo ""
+echo "Start install"
+echo ""
 read -p "Please signin in AppStore and press Enter..."
-
-# install Homebrew
+echo ""
+echo ""
+echo "install Homebrew"
+echo ""
 if test ! $(which brew); then
   /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 fi
@@ -46,21 +51,25 @@ fi
 
 
 # Link .dotfiles
-
-
 ln -sfn ~/.dotfiles/macos/zshrc ~/.zshrc
 ln -sfn ~/.dotfiles/macos/p10k.zsh ~/.p10k.zsh
 
 
 
 # mOS 10.15 specific
+echo ""
 read -p "Please open VSCode once and press Enter..."
+echo ""
 
 code --install-extension almenon.arepl
 code --install-extension bastisteo.vscode-django
 code --install-extension ms-azuretools-vscode-docker
 code --install-extension ms-python.python
 
+# Specify the preferences directory
+defaults write com.googlecode.iterm2.plist PrefsCustomFolder -string "~/.dotfiles/macos/iterm2"
+# Tell iTerm2 to use the custom preferences in the directory
+defaults write com.googlecode.iterm2.plist LoadPrefsFromCustomFolder -bool true
 
 # set dock Icons
 
