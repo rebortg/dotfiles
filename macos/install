@@ -1,11 +1,110 @@
-echo ""
-echo "Start install"
-echo ""
+#!/usr/bin/env bash
+
+################################################################################
+# bootstrap
+#
+# This script is intended to set up a new Mac computer with my dotfiles and
+# other development preferences.
+################################################################################
+
+# Thank you, thoughtbot!
+bootstrap_echo() {
+  local fmt="$1"; shift
+
+  # shellcheck disable=SC2059
+  printf "\\n[BOOTSTRAP] $fmt\\n" "$@"
+}
+
+################################################################################
+# VARIABLE DECLARATIONS
+################################################################################
+
+export COMMANDLINE_TOOLS="/Library/Developer/CommandLineTools"
+export DEFAULT_SHELL="zsh"
+
+osname=$(uname)
+
+comp=$(scutil --get ComputerName)
+host=$(scutil --get LocalHostName)
+
+if [ -z "$comp" ] || [ -z "$host" ]; then
+  DEFAULT_COMPUTER_NAME="My Mac Computer"
+  DEFAULT_HOST_NAME="my-mac-computer"
+else
+  DEFAULT_COMPUTER_NAME="$comp"
+  DEFAULT_HOST_NAME="$host"
+fi
+
+export DEFAULT_TIME_ZONE="Europe/Berlin"
+
+################################################################################
+# Make sure we're on a Mac before continuing
+################################################################################
+
+if [ "$osname" == "Linux" ]; then
+  bootstrap_echo "Oops, looks like you're on a Linux machine."
+  exit 1
+elif [ "$osname" != "Darwin" ]; then
+  bootstrap_echo "Oops, it looks like you're using a non-UNIX system. This script
+only supports Mac. Exiting..."
+  exit 1
+fi
+
+################################################################################
+# Check for presence of command line tools if macOS
+################################################################################
+
+if [ ! -d "$COMMANDLINE_TOOLS" ]; then
+  bootstrap_echo "Apple's command line developer tools must be installed before
+running this script. To install them, just run 'xcode-select --install' from
+the terminal and then follow the prompts. Once the command line tools have been
+installed, you can try running this script again."
+  exit 1
+fi
+
+################################################################################
+# Authenticate
+################################################################################
+
+sudo -v
+
+# Keep-alive: update existing `sudo` time stamp until bootstrap has finished
+while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
+
+set -e
+
+################################################################################
+# Welcome and setup
+################################################################################
+
+echo
+echo "*************************************************************************"
+echo "*******                                                           *******"
+echo "*******                 Welcome to Mac Bootstrap!                 *******"
+echo "*******                                                           *******"
+echo "*******                                                           *******"
+echo "*************************************************************************"
+echo
+
+printf "\\nEnter a name for your Mac. (Leave blank for default: %s)\\n" "$DEFAULT_COMPUTER_NAME"
+read -r -p "> " COMPUTER_NAME
+export COMPUTER_NAME=${COMPUTER_NAME:-$DEFAULT_COMPUTER_NAME}
+
+printf "\\nEnter a host name for your Mac. (Leave blank for default: %s)\\n" "$DEFAULT_HOST_NAME"
+read -r -p "> " HOST_NAME
+export HOST_NAME=${HOST_NAME:-$DEFAULT_HOST_NAME}
+
+
+
+########################################
+# prepare to install stuff from appstore
+########################################
+echo 
 read -p "Please signin in AppStore and press Enter..."
-echo ""
-echo ""
-echo "install Homebrew"
-echo ""
+echo 
+
+
+# install and update brew
 if test ! $(which brew); then
   /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 fi
@@ -15,10 +114,9 @@ brew update
 
 # Install all our dependencies with bundle (See Brewfile)
 brew tap homebrew/bundle
-brew bundle
+brew bundle --file macos/Brewfile
 
 # Installing Oh-My-Zsh...
-
 if [ -d "$HOME"/.oh-my-zsh ]; then
   rm -rf "$HOME"/.oh-my-zsh
 fi
@@ -48,11 +146,20 @@ if [[ ! -e "$HOME/Library/Fonts/SourceCodePro+Powerline+Awesome+Regular.ttf" ]];
     wget -q --show-progress -P $HOME/Library/Fonts/ https://github.com/Falkor/dotfiles/raw/master/fonts/SourceCodePro+Powerline+Awesome+Regular.ttf
 fi
 
+################################################################################
+# Set macOS preferences
+################################################################################
+
+bootstrap_echo "Setting macOS preferences..."
+
+# shellcheck source=/dev/null
+source "macos/macos"
 
 
 # Link .dotfiles
-ln -sfn ~/.dotfiles/macos/zshrc ~/.zshrc
-ln -sfn ~/.dotfiles/macos/p10k.zsh ~/.p10k.zsh
+ln -sfn ~/.dotfiles/dotfiles/zshrc ~/.zshrc
+ln -sfn ~/.dotfiles/dotfiles/p10k.zsh ~/.p10k.zsh
+ln -sfn ~/.dotfiles/dotfiles/gitconfig.zsh ~/.gitconfig
 
 
 
