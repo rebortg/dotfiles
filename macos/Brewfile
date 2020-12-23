@@ -12,7 +12,10 @@ brew "pipenv"
 brew "tmux"
 brew "mas"
 brew "dockutil"
-
+brew "tree"
+brew "cython"
+brew "packer"
+brew "youtube-dl"
 
 cask 'db-browser-for-sqlite'
 cask '1password'
@@ -33,6 +36,9 @@ cask 'wireshark'
 cask 'spotify'
 cask 'istat-menus'
 cask 'tunnelblick'
+cask 'hubstaff'
+cask 'moneymoney'
+cask 'nextcloud'
 
 
 mas "Amphetamine", id: 937984704

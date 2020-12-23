@@ -163,11 +163,11 @@ ln -sfn ~/.dotfiles/dotfiles/gitconfig ~/.gitconfig
 
 
 
-# mOS 10.15 specific
-echo ""
-code
-read -p "Please open VSCode once and press Enter..."
-echo ""
+# mOS 10.15 specific not nessesary anymore
+#echo ""
+#code
+#read -p "Please open VSCode once and press Enter..."
+#echo ""
 
 code --install-extension almenon.arepl
 code --install-extension batisteo.vscode-django
@@ -182,8 +182,9 @@ defaults write com.googlecode.iterm2.plist LoadPrefsFromCustomFolder -bool true
 # set dock Icons
 
 dockutil --no-restart --remove all
-dockutil --no-restart --add "/Applications/Google Chrome.app"
+dockutil --no-restart --add "/System/Applications/Launchpad.app"
 dockutil --no-restart --add "/Applications/Safari.app"
+dockutil --no-restart --add "/Applications/Google Chrome.app"
 dockutil --no-restart --add "/Applications/Firefox.app"
 dockutil --no-restart --add "/Applications/Thunderbird.app"
 dockutil --no-restart --add "/Applications/iTerm.app"
