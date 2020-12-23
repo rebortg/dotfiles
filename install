@@ -159,7 +159,7 @@ source "macos/macos"
 # Link .dotfiles
 ln -sfn ~/.dotfiles/dotfiles/zshrc ~/.zshrc
 ln -sfn ~/.dotfiles/dotfiles/p10k.zsh ~/.p10k.zsh
-ln -sfn ~/.dotfiles/dotfiles/gitconfig.zsh ~/.gitconfig
+ln -sfn ~/.dotfiles/dotfiles/gitconfig ~/.gitconfig
 
 
 
