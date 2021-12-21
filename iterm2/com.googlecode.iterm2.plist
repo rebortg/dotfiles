@@ -2,12 +2,18 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>AlternateMouseScroll</key>
+	<true/>
 	<key>Default Bookmark Guid</key>
 	<string>A6094C73-E1E7-4A26-A617-32651B8174CB</string>
 	<key>HapticFeedbackForEsc</key>
 	<false/>
 	<key>HotkeyMigratedFromSingleToMulti</key>
 	<true/>
+	<key>NeverWarnAboutShortLivedSessions_A6094C73-E1E7-4A26-A617-32651B8174CB</key>
+	<true/>
+	<key>NeverWarnAboutShortLivedSessions_A6094C73-E1E7-4A26-A617-32651B8174CB_selection</key>
+	<integer>0</integer>
 	<key>New Bookmarks</key>
 	<array>
 		<dict>
@@ -743,6 +749,8 @@
 			<string>/Users/luser</string>
 		</dict>
 	</array>
+	<key>PathToTelnet</key>
+	<string>/opt/homebrew/bin/telnet</string>
 	<key>PointerActions</key>
 	<dict>
 		<key>Button,1,1,,</key>
@@ -778,7 +786,16 @@
 	</dict>
 	<key>SoundForEsc</key>
 	<false/>
+	<key>URLHandlersByGuid</key>
+	<dict>
+		<key>ssh</key>
+		<string>A6094C73-E1E7-4A26-A617-32651B8174CB</string>
+		<key>telnet</key>
+		<string>A6094C73-E1E7-4A26-A617-32651B8174CB</string>
+	</dict>
 	<key>VisualIndicatorForEsc</key>
 	<false/>
+	<key>findMode_iTerm</key>
+	<integer>0</integer>
 </dict>
 </plist>

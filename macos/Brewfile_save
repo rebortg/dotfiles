@@ -10,9 +10,11 @@ brew "wget"
 brew "python"
 brew "pipenv"
 brew "tmux"
+brew "mas"
 brew "dockutil"
 brew "tree"
 brew "cython"
+brew "packer"
 brew "youtube-dl"
 
 cask 'db-browser-for-sqlite'
@@ -38,3 +40,11 @@ cask 'hubstaff'
 cask 'moneymoney'
 cask 'nextcloud'
 
+
+mas "Amphetamine", id: 937984704
+mas "Apple Configurator 2", id: 1037126344
+mas "Mactracker", id: 430255202
+mas "Magnet", id: 441258766
+mas "Microsoft Remote Desktop", id: 1295203466
+mas "Pixelmator", id: 407963104
+mas "Xcode", id: 497799835
