@@ -10,12 +10,10 @@ brew "wget"
 brew "python"
 brew "pipenv"
 brew "tmux"
-brew "dockutil"
 brew "tree"
 brew "cython"
 brew "youtube-dl"
 
-cask 'db-browser-for-sqlite'
 cask '1password'
 cask 'bartender'
 cask 'docker'
@@ -24,12 +22,9 @@ cask 'thunderbird'
 cask 'google-chrome'
 cask 'slack'
 cask 'sublime-text'
-cask 'sublime-merge'
 cask 'visual-studio-code'
 cask 'iterm2'
 cask 'vlc'
-cask 'postman'
-cask 'vagrant'
 cask 'wireshark'
 cask 'spotify'
 cask 'istat-menus'
